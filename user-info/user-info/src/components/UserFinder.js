@@ -11,12 +11,17 @@ const DUMMY_USERS = [
 
 class UserFinder extends Component {
   constructor() {
+    super();
     this.state = {
-      filteredUsers: DUMMY_USERS,
+      filteredUsers: [],
       searchTerm: "",
     };
   }
 
+  componentDidMount() {
+    //send http request...
+    this.setState({filteredUsers: DUMMY_USERS});
+  }
   componentDidUpdate(prevProps, prevState) {
     if(prevState.searchTerm !== this.state.searchTerm) {
       this.setState({
