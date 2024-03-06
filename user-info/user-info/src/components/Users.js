@@ -20,6 +20,11 @@ class Users extends Component {
     };
   }
 
+  componentDidUpdate() {
+    if(this.props.Users.length === 0) {
+      throw new Error('No user found');
+    }
+  }
 
   toggleUsersHandler(){
       // this.state.showUsers = false  it is a wrong syntax.
